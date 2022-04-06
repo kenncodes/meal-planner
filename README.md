@@ -15,30 +15,30 @@ A meal planner app that allows you to log foods with a breakdown of parts, log c
 
 
 Design:
-[ ] Business Rules
-[ ] Front End Design
-    [ ] UI Requirements
-    [ ] UI Sketch
-    [ ] Responsive Layouts - Mobile First
-    [ ] Color and Font Scheme
-    [ ] Programming Languages
-    [ ] Frameworks
+- [ ] Business Rules
+- [ ] Front End Design
+    - [ ] UI Requirements
+    - [ ] UI Sketch
+    - [ ] Responsive Layouts - Mobile First
+    - [ ] Color and Font Scheme
+    - [ ] Programming Languages
+    - [ ] Frameworks
 
-[ ] Backend Design
-    [ ] System Server Design
-    [ ] ]Database Relationships
-    [ ] UML Class Design
-    [ ] UML Use Case Design
-    [ ] UML Sequence Diagram
-    [ ] Supported Browsers
-    [ ] Mobile
+- [ ] Backend Design
+    - [ ] System Server Design
+    - [ ] ]Database Relationships
+    - [ ] UML Class Design
+    - [ ] UML Use Case Design
+    - [ ] UML Sequence Diagram
+    - [ ] Supported Browsers
+    - [ ] Mobile
 
 
-Implementation:
-    [ ] User Interface
-    [ ] Database Design
-    [ ] API Design
-    [ ] Test Cases
+- Implementation:
+    - [ ] User Interface
+    - [ ] Database Design
+    - [ ] API Design
+    - [ ] Test Cases
 
 
 Testing:
