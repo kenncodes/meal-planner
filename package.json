@@ -4,8 +4,9 @@
   "description": "A meal planner app that allows you to log foods with a breakdown of parts, log calories, and create meal plans that count calories. You can also add a helper/team member who can edit your meal plan and encourage you. You can also create and print as a pdf and log the entire week of meals. You can add exercises for negative calories and calculate estimated calorie loss based on weight. Finally, you can use a built in timer for cooking meals or logging exercise",
   "main": "index.js",
   "scripts": {
-   "start": "node server/server.js",
-  "server": "nodemon server/server.js"  },
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kj35/meal-planner.git"
@@ -24,7 +25,8 @@
     "colors": "^1.4.0",
     "dotenv": "^16.0.0",
     "express": "^4.17.3",
-    "mongoose": "^6.2.10"
+    "mongoose": "^6.2.10",
+    "react-router-dom": "^6.3.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

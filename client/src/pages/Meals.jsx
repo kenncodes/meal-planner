@@ -1,9 +1,13 @@
-import React from 'react'
-
+import React from "react";
+import MealsGrid from "../components/MealsGrid";
+import Navbar from "../components/Navbar"
 const Meals = () => {
   return (
-    <div>Meals</div>
-  )
-}
+    <div>
+      <Navbar/>
+      <MealsGrid />
+    </div>
+  );
+};
 
-export default Meals
+export default Meals;

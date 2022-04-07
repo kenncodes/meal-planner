@@ -1,3 +1,25 @@
-body{
-  margin:auto;
+body{    
+  margin: auto !important;
+  padding: auto !important;
+  
+  font-family: "Urbanist", sans-serif;
+}
+
+.navLink{
+  padding:10px;
+  list-style: none;
+  list-style-type: none;
+  text-decoration: none;
+  color:black;
+  
+}
+.navLink:hover{
+  background-color: green;
+}
+
+
+.logButton{
+  background-color: blueviolet !important;
+  width:100%;
+ margin:1vw;
 }

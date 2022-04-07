@@ -18,7 +18,7 @@ Design:
 - [ ] Business Rules
 - [ ] Front End Design
     - [ ] UI Requirements
-    - [ ] UI Sketch
+    - [X] UI Sketch
     - [ ] Responsive Layouts - Mobile First
     - [ ] Color and Font Scheme
     - [ ] Programming Languages
@@ -26,7 +26,7 @@ Design:
 
 - [ ] Backend Design
     - [ ] System Server Design
-    - [ ] ]Database Relationships
+    - [ ] Database Relationships
     - [ ] UML Class Design
     - [ ] UML Use Case Design
     - [ ] UML Sequence Diagram

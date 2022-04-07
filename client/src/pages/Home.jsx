@@ -1,9 +1,14 @@
-import React from 'react'
-
+import React from "react";
+import Navbar from "../components/Navbar";
+import Meals from "../components/MealsGrid";
+import HomeComponent from "../components/HomeComponent";
 const Home = () => {
   return (
-    <div>Meal Planner App</div>
-  )
-}
+    <div>
+      <Navbar/>
+     <HomeComponent/>
+    </div>
+  );
+};
 
-export default Home
+export default Home;
