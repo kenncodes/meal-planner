@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import MealsGrid from "../components/MealsGrid";
 import MediaQuery from "react-responsive";
-import {mobile,desktop } from '../responsive'
+import { mobile, desktop } from "../responsive";
+import { Link } from "react-router-dom";
+import AddWeight from "../pages/AddWeight";
 const HomeComponent = () => {
   const Container = styled.div`
     display: flex;
@@ -18,29 +20,28 @@ const HomeComponent = () => {
   `;
   const ButtonWrapper = styled.div`
     display: flex;
-   
+
     flex: 1;
     justify-content: center;
-    
   `;
 
   const ButtonWrapperDesktop = styled.div`
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     flex: 1;
     justify-content: space-between;
-    padding:10px;
-    
+    padding: 10px;
   `;
 
   const Button = styled.button`
-    padding:10px;
+    padding: 10px;
     border-radius: 10px;
-    font-size:15px;
-    color:white;
+    font-size: 15px;
+    color: white;
   `;
   const DateTitle = styled.div`
     font-weight: 900;
+    font-size: 20px;
   `;
 
   const PlanWrapper = styled.div`
@@ -53,7 +54,7 @@ const HomeComponent = () => {
     flex: 1;
     justify-content: center;
     align-items: center;
-    margin-top:20px;
+    margin-top: 20px;
   `;
 
   const Right = styled.div`
@@ -73,6 +74,26 @@ const HomeComponent = () => {
   const currentDate = new Date().getDate();
   const currentMonth = new Date().getMonth() + 1;
   const currentYear = new Date().getFullYear();
+
+  const NavContainer = styled.ul`
+    padding: 10px;
+    margin: 0px;
+    display:flex;
+  `;
+
+  const NavItem = styled.li`
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+    margin: 10px;
+    cursor: pointer;
+    color: white;
+    font-size: 20px;
+    &:hover {
+      background-color: green;
+    }
+    ${mobile({ padding: "0px" })}
+  `;
   return (
     <Container>
       <Left>
@@ -80,35 +101,36 @@ const HomeComponent = () => {
           {currentMonth}/{currentDate}/{currentYear}
         </DateTitle>
         <Title>
-          Welcome <UserSpan >User</UserSpan>
+          Welcome <UserSpan>User</UserSpan>
         </Title>
         <MediaQuery maxWidth={600}>
-        <ButtonWrapper >
-          <Button className="logButton" variant="contained">
-            Log Weight
-          </Button>
-          <Button className="logButton" variant="contained">
-            Log Workout
-          </Button>
-          <Button className="logButton" variant="contained">
-            Log Meal
-          </Button>
-        </ButtonWrapper>
-        </MediaQuery >
+          <ButtonWrapper>
+             
+                <Link to="/weight"> 
+                <Button className="logButton" variant="contained">
+                  Log Weight</Button></Link>
+              <Button className="logButton" variant="contained">
+                Log Workout
+              </Button>
+              <Button className="logButton" variant="contained">
+                Log Meal
+              </Button>
+          </ButtonWrapper>
+        </MediaQuery>
         <TitleCalories weight="200">Net Calories: 2100</TitleCalories>
         <TitleCalories weight="200">Current Weight: 188 lbs</TitleCalories>
         <MediaQuery minWidth={600}>
-        <ButtonWrapperDesktop>
-          <Button className="logButton" variant="contained">
-            Log Weight
-          </Button>
-          <Button className="logButton" variant="contained">
-            Log Workout
-          </Button>
-          <Button className="logButton" variant="contained">
-            Log Meal
-          </Button>
-        </ButtonWrapperDesktop>
+          <ButtonWrapperDesktop>
+            <Button className="logButton" variant="contained">
+              Log Weight
+            </Button>
+            <Button className="logButton" variant="contained">
+              Log Workout
+            </Button>
+            <Button className="logButton" variant="contained">
+              Log Meal
+            </Button>
+          </ButtonWrapperDesktop>
         </MediaQuery>
       </Left>
       <Right>

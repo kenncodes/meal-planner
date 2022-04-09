@@ -62,7 +62,7 @@ const Navbar = () => {
   return (
     <Container>
       <Left>
-        <Title>Meal Planner</Title>
+        <Title>Calorie Counter</Title>
       </Left>
       <Right>
         <MediaQuery minWidth={600}>

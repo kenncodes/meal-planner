@@ -11,6 +11,7 @@ import reportWebVitals from './reportWebVitals';
 import Meals from "./pages/Meals"
 import Calendar from "./pages/Calendar"
 import Stats from "./pages/Stats"
+import AddWeight from './pages/AddWeight'
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
@@ -19,6 +20,7 @@ render(
     <Route path="/meals" element={<Meals/>} />
     <Route path="/calendar" element={<Calendar/>} />
     <Route path="/stats" element={<Stats/>} />
+    <Route path="/weight" element={<AddWeight/> } />
     </Routes>
   </BrowserRouter>,
   rootElement
