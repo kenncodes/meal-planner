@@ -15,23 +15,9 @@ The purpose of the project is to create a web app that allow users to track calo
 3. Private and Public Recipes
 
 ### Reports/Data Visualization
-1. Calories By Day, Week, Month
-2. Weight Loss Line Chart by Day, Week, or Month
-3. Compare 2 Weeks at on Line or Bar Graph
-4. User Customization of Home Page using Decorator Pattern
+1. View Calories By Day, Week, Month
+2. Calendar Menu - View Calendar of Calories
 
 ### Database Access
-1. Create Meals using Builder Pattern
-2. Data Schema - Meals, Food, Workout, User, MealPlan 
-3. User - can CRUD meals
-4. Helper - can update another users mealplan if requested
-
-### Bottom Navigation
-1. Home Menu
-    - Weight/Calorie graphs per user customization
-    - Meals for the Day
-2. Meals Menu
-    - Recent Meals
-    - 
-3. Planner Menu - Calendar of Meals
-4. Explore Menu - See uploaded/other recipes
+1. CRUD Meals, Workouts, and Weight
+2. Data Schema - Calories, User, Weight

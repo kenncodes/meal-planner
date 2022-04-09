@@ -71,10 +71,6 @@ const Navbar = () => {
               {" "}
               Home
             </Link>
-            <Link to="/meals" className="navLink">
-              {" "}
-              Meals
-            </Link>
             <Link to="/calendar" className="navLink">
               {" "}
               Calendar

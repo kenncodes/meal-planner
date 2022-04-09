@@ -10,10 +10,12 @@ margin:0;
   justify-self:center;
 `;
 
-const Image = styled.img`
+const Image = styled.div`
   display:flex;
+  justify-content:center;
   align-items: center;
   width:80px !important;
+  border-right: 2px solid green;
   
 `;
 
@@ -36,14 +38,14 @@ const Calories = styled.div`
   justify-content: center;
 `;
 
-const Meal = ({item}) => {
+const Workout = ({item}) => {
   return (
     <Container>
-      <Image src={`${item.img}?w=140&h=140&fit=crop&auto=format`} />
-      <Desc>{item.title} </Desc>
-      <Calories>{item.calories} cal </Calories>
+      <Image>{item.time}</Image>
+      <Desc>{item.workout} </Desc>
+      <Calories>{item.calories} </Calories>
     </Container>
   );
 };
 
-export default Meal;
+export default Workout;

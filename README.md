@@ -1,6 +1,6 @@
 # meal-planner
 
-A meal planner app that allows you to log foods with a breakdown of parts, log calories, and create meal plans that count calories. You can also add a helper/team member who can edit your meal plan and encourage you. You can also create and print as a pdf and log the entire week of meals. You can add exercises for negative calories and calculate estimated calorie loss based on weight. Finally, you can use a built in timer for cooking meals or logging exercise
+A meal planner app that allows you to log meals and workouts to count net calories. You can add exercises for negative calories and add a goal weight to calculate estimated net calories needed per day to achieve your goal. 
 
 ## Software Development Life Cycle
 

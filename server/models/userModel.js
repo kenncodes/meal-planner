@@ -1,6 +1,4 @@
 const mongoose = require('mongoose')
-import weightModel from './weightModel'
-import mealEatenModel from './mealEatenModel'
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -23,8 +21,8 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    weightUnit: {
-        type: String
+    currentWeight: {
+
     },
 },
     {
