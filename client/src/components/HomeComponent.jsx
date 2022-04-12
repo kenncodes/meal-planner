@@ -8,6 +8,8 @@ import { Link } from "react-router-dom";
 import AddWeight from "../pages/AddWeight";
 import { Tabs, Tab, Box, Typography } from "@mui/material";
 import PropTypes from 'prop-types';
+import { itemData } from "../data";
+import Meal from "./Meal";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -232,6 +234,7 @@ const HomeComponent = () => {
         </Tabs>
       </Box>
       <TabPanel value={value} index={0}>
+       
       <MealsGrid />
       </TabPanel>
       <TabPanel value={value} index={1}>

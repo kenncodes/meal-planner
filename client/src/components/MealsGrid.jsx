@@ -29,6 +29,7 @@ const Meals = () => {
   return (
     <MealsWrapper>
       <Container>
+    
         {itemData.map((item) => (
           <Meal item={item} key={item.title} />
         ))}

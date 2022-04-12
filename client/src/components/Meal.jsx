@@ -5,23 +5,22 @@ const Container = styled.div`
   width: 100%;
   display: flex;
   font-family: "Urbanist", sans-serif;
-margin:0;
-  border:2px black solid;
-  justify-self:center;
+  margin: 0;
+  border: 2px black solid;
+  justify-self: center;
 `;
 
 const Image = styled.img`
-  display:flex;
+  display: flex;
   align-items: center;
-  width:80px !important;
-  
+  width: 80px !important;
 `;
 
 const Desc = styled.div`
-  flex:3;
- padding:10px;
-  font-weight:600;
-  display:flex;
+  flex: 3;
+  padding: 10px;
+  font-weight: 600;
+  display: flex;
   justify-content: center;
   align-items: center;
 `;
@@ -31,19 +30,33 @@ const Calories = styled.div`
   display: flex;
   align-items: center;
   font-weight: 900;
-  font-size:20px;
-  border-left:2px solid green;
+  font-size: 20px;
+  border-left: 2px solid green;
   justify-content: center;
 `;
 
-const Meal = ({item}) => {
+const TimeOfDay = styled.div`
+  flex: 1;
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  font-size: 20px;
+  border-right: 2px solid green;
+  justify-content: center;
+`;
+
+const Meal = ({ item }) => {
   return (
     <Container>
-      <Image src={`${item.img}?w=140&h=140&fit=crop&auto=format`} />
+      <TimeOfDay>{item.meal} </TimeOfDay>
       <Desc>{item.title} </Desc>
-      <Calories>{item.calories} cal </Calories>
+      <Calories>{item.calories}</Calories>
     </Container>
   );
 };
 
 export default Meal;
+/*
+<Image src={`${item.img}?w=140&h=140&fit=crop&auto=format`} />
+    
+*/

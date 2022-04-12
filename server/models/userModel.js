@@ -5,6 +5,9 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    username: {
+        type: String,
+    },
     email: {
         type: String,
         required: [true, 'Please add an email']
@@ -15,15 +18,19 @@ const userSchema = new mongoose.Schema({
     },
     startWeight: {
         type: Number
-
     },
-    username: {
-        type: String,
-        required: false
+    startDate:{
+        type: Date
     },
     currentWeight: {
-
+        type: Number,
     },
+    goalWeight: {
+        type: Number
+    },
+    goalChange: {
+        type:Number,
+    }
 },
     {
         timestamps: true
