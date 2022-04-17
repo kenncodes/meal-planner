@@ -1,6 +1,5 @@
 const mongoose = require("mongoose")
 
-
 const weightModel = new mongoose.Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,

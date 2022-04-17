@@ -5,7 +5,7 @@ import AccountCircle from "@mui/icons-material/AccountCircle";
 import Navbar from "../components/Navbar";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-const Login = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,10 +16,14 @@ const Login = () => {
   const { name, email, password, password2 } = formData;
 
   const onChange = (e) => {
+    setFormData((prevState) => ({
+      ...prevState,
+      [e.target.name]: e.target.value,
+    }))
   }
+  
   const onSubmit = (e) => {
       e.preventDefault()
-      console.log(formData)
 
   }
   const Heading = styled.div`
@@ -50,13 +54,22 @@ const Login = () => {
     font-size: 20px;
   `;
 
-
   const Question = styled.p`
   text-align:center`;
 
 const FormComponent = ({setState, state, label}) => (
-    <form>
+
  <RegisterForm>
+        <h2>Name</h2>
+        <EmailInput
+          id="name"
+          name="name"
+          value={name}
+          type="text"
+          placeholder="Enter your name"
+
+    
+        />
 
         <h2>Email</h2>
         <div>
@@ -82,9 +95,19 @@ const FormComponent = ({setState, state, label}) => (
     
           />
         </PasswordWrapper>
+        <PasswordWrapper>
+          <h2>Retype your Password</h2>
+          <PasswordInput
+            id="password2"
+            name="password2"
+            type="password"
+            value={password2}
+            placeholder="Retype your password"
+            
+          />
+        </PasswordWrapper>
         <SubmitButton onSubmit={onSubmit}>Submit</SubmitButton>
       </RegisterForm>
-    </form>
 )
 
   return (
@@ -93,16 +116,16 @@ const FormComponent = ({setState, state, label}) => (
       <Heading>
         <RegisterHeader>
           <AccountCircle fontSize="large" />
-          <Title>Login</Title>
+          <Title>Register</Title>
         </RegisterHeader>
-        <p>Login to your calorie counter</p>
+        <p>Please create an account</p>
       </Heading>
       <FormComponent state={formData} setState={setFormData}/>
-      <Link to="/register">
-       <Question> Dont have an account? </Question>
+      <Link to="/login">
+       <Question> Already have an account? </Question>
       </Link>
     </>
   );
 };
 
-export default Login;
+export default Register;

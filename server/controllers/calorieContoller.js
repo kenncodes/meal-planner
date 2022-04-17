@@ -5,18 +5,18 @@ const { findByIdAndUpdate } = require('../models/calorieModel');
 const Calorie = require('../models/calorieModel');
 
 const getCalories = asyncHandler(async (req, res) => {
-    const calories = await Calorie.find()
+    const calories = await Calorie.find({ user: req.user.id })
 
     res.status(200).json(calories)
 })
 
 const getCaloriesFromWorkouts = asyncHandler(async (req, res) => {
-    const calories = await Calorie.find({ $or: [{ calorieType: false }] })
+    const calories = await Calorie.find({ calorieType: false,  user: req.user.id })
     res.status(200).json(calories)
 })
 
 const getCaloriesFromMeals = asyncHandler(async (req, res) => {
-    const calories = await Calorie.find({ $or: [{ calorieType: true }] })
+    const calories = await Calorie.find({ calorieType: true,  user: req.user.id })
     res.status(200).json(calories)
 })
 
@@ -36,20 +36,22 @@ const setCaloriesFromWorkout = asyncHandler(async (req, res) => {
         throw new Error('Please add a date')
     }
 
-    if (!(req.body.time)) {
+    if (!(req.body.workoutTime)) {
         res.status(400)
         throw new Error('Please add a time')
     }
-    if (!(req.body.name)) {
+    if (!(req.body.workoutName)) {
         res.status(400)
         throw new Error('Please add a workout name')
     }
     const calories = await Calorie.create({
         calorieType: false,
-        amount: req.body.amount,
         date: req.body.date,
-        workoutTime: req.body.time,
-        workoutName: req.body.name
+        workoutName: req.body.workoutName,
+        workoutTime: req.body.workoutTime,
+        amount: req.body.amount,
+        user: req.user.id
+        
     })
     res.status(200).json(calories)
 })
@@ -70,17 +72,17 @@ const setCaloriesFromMeal = asyncHandler(async (req, res) => {
         throw new Error("Please only add meal here")
     }
 
-    if (!(req.body.name)) {
+    if (!(req.body.mealName)) {
         res.status(400)
         throw new Error('Please add a name')
     }
 
     const calories = await Calorie.create({
         calorieType: true,
-        amount: req.body.amount,
         date: req.body.date,
-        mealName: req.body.name
-
+        mealName: req.body.mealName,
+        amount: req.body.amount,
+        user: req.user.id
     })
     res.status(200).json(calories)
 })
@@ -93,8 +95,8 @@ const updateCalories = asyncHandler(async (req, res) => {
         res.status(400)
         throw new Error("calorie entry not found")
     }
-    console.log(calorie.calorieType.toString())
-    console.log(req.body.calorieType)
+   // console.log(calorie.calorieType.toString())
+   // console.log(req.body.calorieType)
 
     if(!(calorie.calorieType.toString() === req.body.calorieType)){
         res.status(400)
@@ -111,7 +113,15 @@ const updateCalories = asyncHandler(async (req, res) => {
     }
 
     if(!calorie.calorieType){
-
+        if(!req.body.workoutName || req.body.workoutName===""){
+            throw new Error("no name provided")
+        }
+        if(!req.body.workoutName || req.body.workoutTime ===""){
+            throw new Error("no name provided")
+        }
+        if(!req.body.amount || req.body.amount==="" || req.body.amount < 0){
+            throw new Error("no calorie amount provided or insufficient")
+        }
     }
 
 

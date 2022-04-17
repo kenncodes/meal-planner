@@ -43,12 +43,11 @@ const WorkoutInput = styled.input`
   font-size: 2rem;
 `;
 
-const FormWorkout = () => {
+const FormMeal = () => {
   const [value, setValue] = useState(new Date());
-  const [workoutEntry, setWorkoutEntry] = useState({
+  const [mealEntry, setMealEntry] = useState({
     Date: new Date(),
     name: "",
-    minutes: 0,
     calories: 0,
   });
 
@@ -62,33 +61,28 @@ const FormWorkout = () => {
 
   return (
     <Container>
-      <Title> Add Workout</Title>
+      <Title> Add Meal</Title>
       <Wrapper>
    
         <InputContainer>
           <Title>Date</Title>
           <DatePicker
             type="date"
-            id="dateWorkout"
-            name="date-workout"
+            id="dateMeal"
+            name="date-meal"
             onChange={handleChange}
           />
         </InputContainer>
       
-   
+
         <InputContainer>
-          <Title>Workout Name</Title>
-          <WorkoutInput id="nameWorkout" name="name-workout" type="text" width="10" value={workoutEntry.name} />
+          <Title>Meal Name</Title>
+          <WorkoutInput onChange={handleChange} id="nameMeal" name="name-meal" type="text" width="10" value={mealEntry.name} />
         </InputContainer>
      
         <InputContainer>
-          <Title>Minutes</Title>
-          <WorkoutInput id="minWorkout" name="min-workout" type="number" size="5" value={workoutEntry.minutes} />
-        </InputContainer>
-
-        <InputContainer>
           <Title>Calories</Title>
-          <CaloriesInput id="calWorkout" name="cal-workout" type="number" min="0" size="5"/>
+          <CaloriesInput id="calMeal" name="cal-meal" type="number" min="0" size="5"/>
         </InputContainer>
         <Button>Log Weight</Button>
       </Wrapper>
@@ -100,4 +94,4 @@ const FormWorkout = () => {
   );
 };
 
-export default FormWorkout;
+export default FormMeal;

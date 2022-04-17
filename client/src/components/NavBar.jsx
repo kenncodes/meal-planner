@@ -6,10 +6,12 @@ import MediaQuery from "react-responsive";
 import MenuBookIcon from "@mui/icons-material/MenuBook";
 import EventNoteIcon from "@mui/icons-material/EventNote";
 import EqualizerIcon from "@mui/icons-material/Equalizer";
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { Link } from "react-router-dom";
 import Meals from "../pages/Meals";
 import Calendar from "../pages/Calendar";
 import Stats from "../pages/Stats";
+import AccountCircle from "@mui/icons-material/AccountCircle";
 
 const Container = styled.div`
   margin: 0px !important;
@@ -25,7 +27,7 @@ const Left = styled.div`
   display: flex;
   align-items: center;
   cursor: pointer;
-  flex-wrap:wrap;
+  flex-wrap: wrap;
 `;
 
 const Right = styled.div`
@@ -34,35 +36,38 @@ const Right = styled.div`
   flex-wrap: none;
   align-items: center;
   justify-content: right;
-  ${mobile({ justifyContent: "center", flex: "2" })}
+  ${mobile({ justifyContent: "center", flex: "1.5" })}
 `;
 const NavContainer = styled.ul`
-  padding: 10px;
+  padding: 5px;
   margin: 0px;
 `;
 const NavItem = styled.li`
   list-style: none;
   display: inline;
-  padding: 10px;
   margin: 10px;
   cursor: pointer;
   font-size: 20px;
   &:hover {
     background-color: green;
   }
-  ${mobile({ padding: "0px" })}
+  ${mobile({ padding: "5px", margin: "2px" })}
 `;
 
 const Title = styled.h1`
   font-weight: 400;
   font-size: 1.2em;
+  padding: 0px 0px;
+  margin: 0px 0px;
 `;
 
 const Navbar = () => {
   return (
     <Container>
       <Left>
-        <Title>Calorie Counter</Title>
+        <Link to="/" className="navLink">
+          <Title>CalorieCounter</Title>
+        </Link>
       </Left>
       <Right>
         <MediaQuery minWidth={600}>
@@ -71,23 +76,15 @@ const Navbar = () => {
               {" "}
               Home
             </Link>
-            <Link to="/calendar" className="navLink">
+            <Link to="/login" className="navLink">
               {" "}
-              Calendar
+              Login
             </Link>
-            <Link to="/stats" className="navLink">
-              {" "}
-              Stats
-            </Link>
+
           </NavContainer>
         </MediaQuery>
         <MediaQuery maxWidth={600}>
           <NavContainer>
-            <Link to="/" className="navLink">
-              <NavItem>
-                <HomeIcon fontSize="medium" />
-              </NavItem>
-            </Link>
             <Link to="/meals" className="navLink">
               <NavItem>
                 <MenuBookIcon fontSize="medium" />
@@ -99,9 +96,9 @@ const Navbar = () => {
               </NavItem>
             </Link>
 
-            <Link to="/stats" className="navLink">
+            <Link to="/login" className="navLink">
               <NavItem>
-                <EqualizerIcon fontSize="medium" />
+                <AccountCircle fontSize="medium" />
               </NavItem>
             </Link>
           </NavContainer>
