@@ -80,7 +80,10 @@ const Navbar = () => {
               {" "}
               Login
             </Link>
-
+            <Link to="/register" className="navLink">
+              {" "}
+              Register
+            </Link>
           </NavContainer>
         </MediaQuery>
         <MediaQuery maxWidth={600}>

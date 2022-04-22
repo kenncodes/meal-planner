@@ -10,7 +10,7 @@ const Container = styled.div`
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
-  overflow:scroll;
+  overflow-y:scroll;
   height: 40vh;
 `;
 

@@ -90,7 +90,7 @@ const FormWorkout = () => {
           <Title>Calories</Title>
           <CaloriesInput id="calWorkout" name="cal-workout" type="number" min="0" size="5"/>
         </InputContainer>
-        <Button>Log Weight</Button>
+        <Button>Log Workout</Button>
       </Wrapper>
       <Link to="/">
         {" "}

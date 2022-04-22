@@ -1,19 +1,37 @@
-import React from "react";
-import { useState, useEffect } from "react";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Navbar from "../components/Navbar";
-import styled from "styled-components";
-import { Link } from "react-router-dom";
-const Register = () => {
+import { useState, useEffect } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify'
+import { register, reset } from '../features/auth/authSlice'
+
+function Register() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     password2: '',
-  });
+  })
 
-  const { name, email, password, password2 } = formData;
+  const { name, email, password, password2 } = formData
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector(
+    (state) => state.auth
+  )
+
+  useEffect(() => {
+    if (isError) {
+      toast.error(message)
+    }
+
+    if (isSuccess || user) {
+      navigate('/')
+    }
+
+    dispatch(reset())
+  }, [user, isError, isSuccess, message, navigate, dispatch])
 
   const onChange = (e) => {
     setFormData((prevState) => ({
@@ -21,111 +39,89 @@ const Register = () => {
       [e.target.name]: e.target.value,
     }))
   }
-  
+
   const onSubmit = (e) => {
-      e.preventDefault()
+    e.preventDefault()
 
+    if (password !== password2) {
+      toast.error('Passwords do not match')
+    } else {
+      const userData = {
+        name,
+        email,
+        password,
+      }
+
+      dispatch(register(userData))
+    }
   }
-  const Heading = styled.div`
-    text-align: center;
-  `;
-  const RegisterHeader = styled.h1``;
 
-  const Title = styled.div``;
-  const RegisterForm = styled.form`
-    text-align: center;
-  `;
-  const EmailInput = styled.input`
-    width: 60%;
-    max-width: 500px;
-  `;
-  const PasswordWrapper = styled.div`
-    padding: 5px;
-    margin: 5px;
-  `;
-  const PasswordInput = styled.input`
-    width: 60%;
-    max-width: 500px;
-  `;
 
-  const SubmitButton = styled.button`
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 20px;
-  `;
-
-  const Question = styled.p`
-  text-align:center`;
-
-const FormComponent = ({setState, state, label}) => (
-
- <RegisterForm>
-        <h2>Name</h2>
-        <EmailInput
-          id="name"
-          name="name"
-          value={name}
-          type="text"
-          placeholder="Enter your name"
-
-    
-        />
-
-        <h2>Email</h2>
-        <div>
-          <EmailInput
-            id="email"
-            name="email"
-            value={email}
-            type="text"
-            placeholder="Enter your email"
-           
-          />
-        </div>
-
-        <PasswordWrapper>
-          <h2>Password</h2>
-          <PasswordInput
-            id="password"
-            name={password}
-            type="password"
-            value={password}
-            placeholder="Enter your password"
-           
-    
-          />
-        </PasswordWrapper>
-        <PasswordWrapper>
-          <h2>Retype your Password</h2>
-          <PasswordInput
-            id="password2"
-            name="password2"
-            type="password"
-            value={password2}
-            placeholder="Retype your password"
-            
-          />
-        </PasswordWrapper>
-        <SubmitButton onSubmit={onSubmit}>Submit</SubmitButton>
-      </RegisterForm>
-)
 
   return (
     <>
-      <Navbar />
-      <Heading>
-        <RegisterHeader>
-          <AccountCircle fontSize="large" />
-          <Title>Register</Title>
-        </RegisterHeader>
+      <section className='heading'>
+        <h1>
+         Register
+        </h1>
         <p>Please create an account</p>
-      </Heading>
-      <FormComponent state={formData} setState={setFormData}/>
-      <Link to="/login">
-       <Question> Already have an account? </Question>
-      </Link>
-    </>
-  );
-};
+      </section>
 
-export default Register;
+      <section className='form'>
+        <form onSubmit={onSubmit}>
+          <div className='form-group'>
+            <input
+              type='text'
+              className='form-control'
+              id='name'
+              name='name'
+              value={name}
+              placeholder='Enter your name'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='email'
+              className='form-control'
+              id='email'
+              name='email'
+              value={email}
+              placeholder='Enter your email'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              id='password'
+              name='password'
+              value={password}
+              placeholder='Enter password'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <input
+              type='password'
+              className='form-control'
+              id='password2'
+              name='password2'
+              value={password2}
+              placeholder='Confirm password'
+              onChange={onChange}
+            />
+          </div>
+          <div className='form-group'>
+            <button type='submit' className='btn btn-block'>
+              Submit
+            </button>
+          </div>
+        </form>
+      </section>
+    </>
+  )
+}
+
+export default Register

@@ -19,12 +19,13 @@ import AddWorkout from './pages/AddWorkout'
 import AddMeal from './pages/AddMeal';
 import Login from './pages/Login'
 import Register from './pages/Register';
+import Home from './pages/Home';
 
 const rootElement = document.getElementById("root");
 render(
   <BrowserRouter>
   <Routes>
-    <Route path="/" element={<App/>} />
+    <Route path="/" element={<Home/>} />
     <Route path="/login" element={<Login/>} />
     <Route path="/register" element={<Register/>} />
     <Route path="/meals" element={<Meals/>} />
